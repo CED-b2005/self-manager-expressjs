@@ -11,11 +11,10 @@ dotenv.config();
 const app = express();
 
 app.use(helmet());
-app.use(
-  cors({
-    origin: process.env.CORS_ORIGIN || "*",
-    credentials: true,
-  })
+app.use(cors({
+  origin: process.env.CORS_ORIGIN || "*",
+  credentials: true,
+})
 );
 app.use(compression());
 app.use(express.json()); // reading request body
@@ -28,6 +27,6 @@ app.get("/", (req: Request, res: Response) => {
 
 // export express - runing app
 const port = process.env.PORT || 3001;
-app.listen(port , () => {
+app.listen(port, () => {
   console.log(`app listening on port ${port}\nlocalhost: http://localhost:${port}`);
 });
