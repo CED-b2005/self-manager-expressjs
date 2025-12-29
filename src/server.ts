@@ -1,7 +1,7 @@
 import "reflect-metadata"; // reading class-validation
 import express from "express"; // using express
 import helmet from "helmet"; // protect header
-import cors from "cors"; // allow accept from other host
+import cors from "cors"; // allow acception from other host
 import compression from "compression"; // send reponse faster
 import dotenv from "dotenv"; // select key from .env
 import { Request, Response } from "express"; // sort time will delete
@@ -26,7 +26,7 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 // export express - runing app
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`app listening on port ${port}\nlocalhost: http://localhost:${port}`);
 });
