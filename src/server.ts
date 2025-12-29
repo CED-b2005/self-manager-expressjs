@@ -4,6 +4,7 @@ import helmet from "helmet"; // protect header
 import cors from "cors"; // allow acception from other host
 import compression from "compression"; // send reponse faster
 import dotenv from "dotenv"; // select key from .env
+import router from "./routes";
 import { Request, Response } from "express"; // sort time will delete
 
 //app config
@@ -24,6 +25,8 @@ app.use(express.urlencoded({ extended: true })); // reading request body
 app.get("/", (req: Request, res: Response) => {
   res.send("Hello Expreess");
 });
+
+app.use("/api", router);  // app using route
 
 // export express - runing app
 const port = process.env.PORT || 3000;
