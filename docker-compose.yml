@@ -3,16 +3,16 @@ version: "3.8"
 services:
   postgres:
     image: postgres:15-alpine
-    container_name: training_postgres
+    container_name: self-manager
     environment:
-      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_USER: ${DATABASE_USER}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
       POSTGRES_DB: ${DATABASE_NAME}
       DB_HOST: ${DATABASE_HOST}
       DB_PORT: ${DATABASE_PORT}
       POSTGRES_HOST_AUTH_METHOD: trust
     ports:
-      - "5432:5432"
+      - "${DATABASE_PORT}:${DATABASE_PORT}"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
