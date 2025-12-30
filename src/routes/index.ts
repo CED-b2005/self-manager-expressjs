@@ -4,8 +4,8 @@ import authRouter from '../modules/auth/auth.route';
 
 const router = Router();    // using node.js route
 
-router.use("/", userRouter); //using User Routes
-router.use("/", authRouter); // using Auth Route
+router.use("/users", userRouter); //using User Routes
+router.use("/auth", authRouter); // using Auth Route
 
 export default router;
 

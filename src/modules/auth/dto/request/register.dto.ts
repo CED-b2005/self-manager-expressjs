@@ -25,4 +25,3 @@ export class RegisterDto {
   @IsEnum(["user", "admin"])
   role!: string
 }
-
