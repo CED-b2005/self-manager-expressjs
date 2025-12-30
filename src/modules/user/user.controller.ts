@@ -1,5 +1,8 @@
 import { Request, Response } from 'express';
 import { UserService } from './user.service';
+import { plainToClass } from 'class-transformer';
+
+import { CreateUserDto } from './dto';
 
 const userService = new UserService();
 
@@ -7,7 +10,6 @@ export class UserController {
   // Tạo người dùng mới
   async createUser(req: Request, res: Response) {
     const { email, name, password, role } = req.body;
-
     try {
       const newUser = await userService.createUser(email, name, password, role);
       return res.status(201).json(newUser);
