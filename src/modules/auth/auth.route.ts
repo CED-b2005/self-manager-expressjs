@@ -1,25 +1,12 @@
-import router from "@/routes";
 import { Router } from "express";
 import { Request, Response } from "express";
+import { AuthController } from "./auth.controller";
 
 const authRouter = Router();
+const authController = new AuthController();
 
-router.post("/auth/register", (req: Request, res: Response) => {
-    const data = req.body;
-    console.log("register");
-    return res.json({
-        route: "api/auth/register",
-        data: data
-    });
-})
+authRouter.post("/auth/register", authController.register)
 
-router.post("auth/login",(req: Request, res: Response) => {
-    const data = req.body;
-    console.log("login");
-    return res.json({
-        route: "api/auth/login",
-        data: data
-    });
-})
+authRouter.post("/auth/login", authController.login)
 
 export default authRouter;
